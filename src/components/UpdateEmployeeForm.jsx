@@ -3,7 +3,7 @@ import axios from "axios";
 import { useDispatch } from 'react-redux'
 import { setDetails } from "./store";
 const UpdateEmployeeForm = () => {
-
+  const api = `https://studb-bck.onrender.com/`;
   const dispatch = useDispatch()
 
   const [empid, setEmpId] = useState("");
@@ -18,7 +18,7 @@ const UpdateEmployeeForm = () => {
 
   const fetch = () => {
     axios
-      .get("http://localhost:5000/db")
+      .get(`${api}db`)
       .then((response) => {
         console.log(response.data);
         dispatch(setDetails(response.data));
@@ -31,7 +31,7 @@ const UpdateEmployeeForm = () => {
 
 const updateEmployee = (employeeData) => {
   axios
-    .post("http://localhost:5000/update", employeeData)
+    .post(`${api}update`, employeeData)
     .then((response) => {
       console.log("Employee updated successfully:", response.data);
       fetch()

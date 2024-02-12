@@ -5,6 +5,8 @@ import { setDetails } from "./store";
 
 const AddEmployeeForm = () => {
 
+  const api = `https://studb-bck.onrender.com/`;
+
   const dispatch = useDispatch()
 
   const [empid, setEmpId] = useState("");
@@ -19,7 +21,7 @@ const AddEmployeeForm = () => {
 
   const fetch = () => {
     axios
-      .get("http://localhost:5000/db")
+      .get(`${api}db`)
       .then((response) => {
         console.log(response.data);
         dispatch(setDetails(response.data));
@@ -31,7 +33,7 @@ const AddEmployeeForm = () => {
 
   const addEmployee = (employeeData) => {
     axios
-      .post("http://localhost:5000/add", employeeData)
+      .post(`${api}add`, employeeData)
       .then((response) => {
         console.log("Employee added successfully:", response.data);
         fetch();

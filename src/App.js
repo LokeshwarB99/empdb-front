@@ -9,10 +9,10 @@ import axios from "axios";
 
 function App() {
   const dispatch = useDispatch();
-
+  const api = `https://studb-bck.onrender.com/`;
   useEffect(() => {
     axios
-      .get("http://localhost:5000/db")
+      .get(`${api}db`)
       .then((response) => {
         console.log(response.data);
         dispatch(setDetails(response.data));

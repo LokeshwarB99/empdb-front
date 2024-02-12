@@ -8,7 +8,7 @@ const Table = () => {
   if (!Array.isArray(empdb)) {
     return <div>No data available</div>;
   }
-
+  
   const itemsPerPage = 5;
 
   const indexOfLastItem = currentPage * itemsPerPage;

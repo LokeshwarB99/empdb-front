@@ -11,10 +11,10 @@ const DeleteEmployeeForm = () => {
     deleteEmployee(empid);
     setEmpId("");
   };
-
+  const api = `https://studb-bck.onrender.com/`;
   const fetch = () => {
     axios
-      .get("http://localhost:5000/db")
+      .get(`${api}db`)
       .then((response) => {
         dispatch(setDetails(response.data));
       })
@@ -25,7 +25,7 @@ const DeleteEmployeeForm = () => {
 
   const deleteEmployee = (empid) => {
     axios
-      .post("http://localhost:5000/delete", { empid: empid })
+      .post(`${api}delete`, { empid: empid })
       .then((response) => {
         console.log("Employee deleted successfully:", response.data);
         fetch();

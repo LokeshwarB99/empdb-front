@@ -8,7 +8,7 @@ const Table = () => {
   if (!Array.isArray(empdb)) {
     return <div>No data available</div>;
   }
-  
+
   const itemsPerPage = 5;
 
   const indexOfLastItem = currentPage * itemsPerPage;
@@ -75,7 +75,7 @@ const Table = () => {
                 scope="col"
                 className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
               >
-                Role
+                Dept
               </th>
               <th
                 scope="col"
